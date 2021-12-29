@@ -1,8 +1,8 @@
 "use strict";
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './js/fetchCountries';
 import Notiflix from 'notiflix';
 import { debounce } from 'lodash';
-import '../css/styles.css';
+import './css/styles.css';
 
 const input=document.querySelector('input#search-box');
 const countryList=document.querySelector('ul.country-list');
