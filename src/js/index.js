@@ -1,8 +1,7 @@
 "use strict";
-
 import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
-import { debounce } from 'lodash.debounce';
+import { debounce } from 'lodash';
 import '../css/styles.css';
 
 const input=document.querySelector('input#search-box');
@@ -10,7 +9,7 @@ const countryList=document.querySelector('ul.country-list');
 const countryInfo=document.querySelector('div.country-info');
 
 input.addEventListener('input',debounce((e)=>{
-  
+
   let name=e.target.value.trim();
   fetchCountries(name)
   .then(data=> makeCountryList(data))
@@ -28,7 +27,7 @@ function makeCountryList(data){
   }else if(data.length===1){
     countryList.style.display="none";
     countryInfo.style.display="block";
-    
+
   const markup=data.map(feature=>{
       const languagesArr=[];
       feature.languages.forEach(language=>languagesArr.push(language.name))
@@ -51,6 +50,6 @@ function makeCountryList(data){
         </p>
       </li>`}).join("");
       countryList.innerHTML=markup
-    
+
     countryList.style.listStyle="none";
 }};
